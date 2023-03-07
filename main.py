@@ -16,14 +16,20 @@ def HeatingCooloing(actualTemp,desiredTemp) :
 #Function to to take celsius value and convert into unit as per user's need
 def Conversion(tempCelsius,targetUnit):
     # # Check the target unit and log the converted temperature
-    if targetUnit == 'F':
-        tempCelsius = tempCelsius * 9 / 5 + 32 # formula to convert value into Fahrenheit
-        print('\t\nTemperature in  Fahrenheit  is {}'.format(tempCelsius))
-    elif targetUnit == 'K':
-        print('\t\nTemperature in Kelvin is {}'.format(tempCelsius))
-        tempCelsius: tempCelsius + 273.15 # formula to convert value into kelvin
+    if targetUnit == 'F' or targetUnit == 'f':
+
+        tempFar = tempCelsius * 9 / 5 + 32 # formula to convert value into Fahrenheit
+        print('\n\tTemperature in  Fahrenheit  is {}'.format(tempFar))
+        print("#" * 50)
+    elif targetUnit == 'K' or  targetUnit == 'k':
+
+        tempKelvin = tempCelsius + 273.15  # formula to convert value into kelvin
+        print('\n\tTemperature in Kelvin is {}'.format(tempKelvin))
+        print("#" * 50)
     else:
-        print('\t\nTemperature in Celsius is {}'.format(tempCelsius))
+
+        print('\n\tTemperature in Celsius is {}'.format(tempCelsius))
+        print("#"*50)
 
 
 # while loop to control execution of code until conditions are met
@@ -54,7 +60,7 @@ while True:
             continue
     #while loop to accept valid  targetunit data from user
     while True:
-            targetUnit  = input('Enter target Unit F for  Fahrenheit  K for Kelvin and C for Celsius')
+            targetUnit  = input('\t\nEnter target Unit F for  Fahrenheit  K for Kelvin and C for Celsius')
             targetUnit = targetUnit.upper()
             if targetUnit == 'F':
                 Conversion(tempCelsius, targetUnit)
